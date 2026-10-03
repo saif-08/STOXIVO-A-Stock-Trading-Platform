@@ -11,3 +11,33 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.nav-link{
+  margin-left: 40px;
+}
+.footer-a-link a{
+  text-decoration: none;
+ color: #6c757d;
+ 
+}
+.stoxivo-logo-text {
+    font-size: 24px;
+    font-weight: 800;
+    font-family: "Inter", sans-serif;
+    letter-spacing: -0.8px;
+    margin-left: 4px;
+
+
+    background: linear-gradient(
+        110deg,
+        #147cff,
+        #11c8ed 48%,
+        #25e0ad
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    display: inline-block;
+    line-height: 1;
+}
