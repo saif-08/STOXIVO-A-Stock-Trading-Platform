@@ -17,6 +17,8 @@ code {
 .footer-a-link a{
   text-decoration: none;
  color: #6c757d;
+ display: inline-block;
+ margin-bottom: 10px;
  
 }
 .stoxivo-logo-text {
