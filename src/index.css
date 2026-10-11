@@ -43,3 +43,39 @@ code {
     display: inline-block;
     line-height: 1;
 }
+#supportHero{
+    background: linear-gradient(
+        110deg,
+        #147cff,
+        #11c8ed 48%,
+        #25e0ad
+    );
+  color: white;
+}
+
+#supportHero a{
+  color: white;
+}
+
+.supportWrapper{
+  display: flex;
+  justify-content: space-between;
+  margin: 0 150px;
+}
+.supportWrapper2{
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 0 150px ;
+}
+
+#supportHero input{
+  padding: 20px 50px;
+  width: 100%;
+  font-size: 20px;
+  border-radius: 10px;
+  border: none;
+}
+.supportWrapper2>div a{
+  margin-right: 10px;
+  font-size: 1.1rem;
+}
