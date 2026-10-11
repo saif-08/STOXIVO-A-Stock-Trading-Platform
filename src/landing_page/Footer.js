@@ -21,8 +21,6 @@ function Footer() {
             <br />
             <a href="">Pricing</a>
             <br />
-             <a href="">Pricing</a>
-            <br />
             <a href="">Referral programme</a>
             <br />
             <a href="">Careers</a>
