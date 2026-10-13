@@ -640,6 +640,9 @@ hr {
   overflow-y: auto;
   position: relative;
 }
+.watchlist-container::-webkit-scrollbar {
+  display: none;
+}
 
 .search-container {
   display: flex;
