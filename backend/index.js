@@ -31,11 +31,22 @@ app.post("/newOrder", async (req, res) => {
     price: req.body.price,
     mode: req.body.mode,
   });
-
-  newOrder.save();
+    newOrder.save();
 
   res.send("Order saved!");
-});
+  });
+
+  app.get("/Order/:uid",async(req,res)=>{
+    let {uid}=req.params;
+    let stock=await OrdersModel.find({"name":uid})
+    if(stock.length>0){
+      res.json(stock);
+    }else{
+      res.json("not found");
+  };
+}
+  );
+
 
 app.get("/allOrders",async(req,res)=>{
   let allOrders=await OrdersModel.find({});

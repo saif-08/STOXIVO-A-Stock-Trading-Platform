@@ -5,7 +5,7 @@ import axios from "axios";
 
 import GeneralContext from "./GeneralContext";
 
-import "./BuyActionWindow.css";
+import "./ActionWindow.css";
 
 const BuyActionWindow = ({ uid }) => {
     const generalContext = useContext(GeneralContext);
@@ -20,11 +20,11 @@ const BuyActionWindow = ({ uid }) => {
       mode: "BUY",
     });
 
-    generalContext.closeBuyWindow();
+    generalContext.closeWindow();
   };
 
   const handleCancelClick = () => {
-    generalContext.closeBuyWindow();
+    generalContext.closeWindow();
   };
 
   return (
@@ -54,7 +54,9 @@ const BuyActionWindow = ({ uid }) => {
           </fieldset>
         </div>
       </div>
-
+      <div style={{textAlign:"center",fontWeight:"bold"}}>
+      <span>stockName:({uid})</span>
+      </div>
       <div className="buttons">
         <span>Margin required ₹140.65</span>
         <div>
