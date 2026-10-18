@@ -79,3 +79,13 @@ code {
   margin-right: 10px;
   font-size: 1.1rem;
 }
+.form {
+ 
+  justify-content: center;
+  margin: 4rem;
+}
+
+.form-bg {
+ 
+  margin: 3rem 0 0 3rem;
+}
