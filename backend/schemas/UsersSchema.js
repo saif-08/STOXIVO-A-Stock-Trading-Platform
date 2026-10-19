@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 
-const userSchema = new mongoose.Schema ({
+const UsersSchema = new mongoose.Schema ({
    email : {
     type:String,
     required:[true, "Your email address is required"],
@@ -22,4 +22,4 @@ const userSchema = new mongoose.Schema ({
   },  
 });
 
-module.exports={userSchema};
+module.exports={UsersSchema};

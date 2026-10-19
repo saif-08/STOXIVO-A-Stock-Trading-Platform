@@ -10,9 +10,14 @@ const { HoldingsModel } = require("./models/HoldingsModel");
 
 const { PositionsModel } = require("./models/PositionsModel");
 const { OrdersModel } = require("./models/OrdersModel");
+const authRoute = require("./routes/AuthRoutes");
 
 app.use(cors());
 app.use(bodyParser.json());
+app.use(express.json());
+
+// Routes
+app.use("/", authRoute);
 
 app.get("/allHoldings", async (req, res) => {
   let allHoldings = await HoldingsModel.find({});
