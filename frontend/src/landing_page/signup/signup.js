@@ -25,7 +25,7 @@ function Signup() {
 
     const handleError = (err) =>
         toast.error(err, {
-            position: "bottom-left",
+            position: "bottom-right",
         });
 
     const handleSuccess = (msg) =>
@@ -37,7 +37,7 @@ function Signup() {
         e.preventDefault();
         try {
             const { data } = await axios.post(
-                `${process.env.REACT_APP_BACKEND_URL}/signup`, {
+                `http://localhost:3002/signup`, {
                 ...inputValue,
             },
                 { withCredentials: true }
@@ -46,7 +46,7 @@ function Signup() {
             if (success) {
                 handleSuccess(message);
                 setTimeout(() => {
-                    navigate("/product");
+                    navigate("/products");
                 }, 1000);
             } else {
                 handleError(message);

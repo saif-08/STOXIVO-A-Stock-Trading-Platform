@@ -6,16 +6,26 @@ const PORT = process.env.PORT || 3002;
 const uri = process.env.MONGO_URL;
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const cookieParser = require("cookie-parser");
 const { HoldingsModel } = require("./models/HoldingsModel");
 
 const { PositionsModel } = require("./models/PositionsModel");
 const { OrdersModel } = require("./models/OrdersModel");
 const authRoute = require("./routes/AuthRoutes");
 
-app.use(cors());
+app.use(cookieParser());
+app.use(cors({
+    origin: ["http://localhost:3000"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  }));
 app.use(bodyParser.json());
 app.use(express.json());
 
+app.get("/abc",(req,res)=>{
+  res.send("hello");
+})
+app.set("trust proxy", 1);
 // Routes
 app.use("/", authRoute);
 

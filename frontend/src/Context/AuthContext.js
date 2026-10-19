@@ -11,7 +11,7 @@ export const AuthProvider = ({ children }) => {
     const verifyAuth = async () => {
       try {
         const { data } = await axios.post(
-          `${process.env.REACT_APP_BACKEND_URL}/verify`,
+          `http://localhost:3002/verify`,
           {},
           { withCredentials: true }
         );
@@ -35,7 +35,7 @@ export const AuthProvider = ({ children }) => {
   const logout = async () => {
     try {
       await axios.post(
-        `${process.env.REACT_APP_BACKEND_URL}/logout`,
+        `http://localhost:3002/logout`,
         {}, 
         {withCredentials:'true'}
       );
@@ -47,7 +47,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, isAuthenticated: !!user, isLoading }}>
+    <AuthContext.Provider value={{ user, isAuthenticated: !!user, isLoading,logout }}>
       {children}
     </AuthContext.Provider>
   );

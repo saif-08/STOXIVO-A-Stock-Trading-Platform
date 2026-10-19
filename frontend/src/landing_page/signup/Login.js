@@ -21,11 +21,11 @@ const Login = () => {
 
   const handleError = (err) =>
     toast.error(err, {
-      position: "bottom-left",
+      position: "bottom-right",
     });
   const handleSuccess = (msg) =>
     toast.success(msg, {
-      position: "bottom-left",
+      position: "bottom-right",
     });
 
   const handleSubmit = async (e) => {
@@ -35,7 +35,7 @@ const Login = () => {
 
       //after authcontroller request 
      const { data } = await axios.post(
-`${process.env.REACT_APP_BACKEND_URL}/login`,        {
+`http://localhost:3002/login`,        {
           ...inputValue,
         },
         { withCredentials: true }
@@ -45,8 +45,8 @@ const Login = () => {
       if (success) {
         handleSuccess(message);
         setTimeout(() => {
-           navigate("/product");
-                  }, 3000);
+           navigate("/products");
+                  }, 1000);
       } else {
         handleError(message);
       }
