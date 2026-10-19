@@ -65,7 +65,7 @@ function Signup() {
     return (
         <div className="form-bg text-center">
             <form onSubmit={handleSubmit} className="form">
-                <div style={{ margin: ' 8rem 0 8rem 0' }}>
+                <div style={{ margin: ' 4rem 0 6rem 0' }}>
                     <h1 className="m-4">Open a free demat and trading account online</h1>
                     <h4 className="text-muted">Start investing brokerage free and join a community of 1.8+ crore investors and traders</h4>
                 </div>
