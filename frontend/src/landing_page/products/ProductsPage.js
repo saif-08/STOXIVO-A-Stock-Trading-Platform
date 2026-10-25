@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCookies } from "react-cookie";
+import { useAuth } from "../../Context/AuthContext";
 import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
 import Hero from "./Hero";
@@ -9,31 +10,23 @@ import RightSection from './RightSection';
 import Universe from './Universe';
 
  function ProductsPage() {
+   const { isAuthenticated,user,verifyAuth } = useAuth();
        const navigate = useNavigate();
         const [cookies, removeCookie] = useCookies([]);
         const [username, setUsername] = useState("");
+           
  
        useEffect(()=> {
           const verifyCookie = async () => {
-           
 
-            const{ data } = await axios.post(
-             `http://localhost:3002/verify`,{},
-              {withCredentials:true}
-            );
-
-            console.log("Backend response:", data);
-
-           const{status, user} = data;
-
-            setUsername(user);
-
-            return status
-            ? toast(`hello ${user}`, {
+          if(user){
+             toast.success(`hello ${user}`, {
               position:"top-right",
-            })
-            : (removeCookie("token"), navigate("/login"));
-          };
+            })}else{
+              removeCookie("token");
+               navigate("/login");
+            }
+          }
 
          verifyCookie();
 
@@ -91,7 +84,7 @@ import Universe from './Universe';
         blog.
       </p>
         <Universe />
-        <ToastContainer/>
+      
         </>
      );
 }

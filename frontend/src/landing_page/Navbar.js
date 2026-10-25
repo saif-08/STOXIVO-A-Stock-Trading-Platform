@@ -8,8 +8,9 @@ function Navbar() {
   const navigate = useNavigate();
 
   const handleLogout = async () => {
-     await logout();
     navigate("/");
+     await logout();
+    
   };
     return (
     <nav
@@ -44,8 +45,8 @@ function Navbar() {
               {isAuthenticated ? (
                 <>
                   <li className="nav-item">
-                    <span className="nav-link active text-muted" style={{ cursor: "default" }}>
-                      Hi, {user}
+                    <span className="nav-link active text-muted fw-bold" style={{ cursor: "default" }}>
+                      Hi,{user}
                     </span>
                   </li>
                   <li className="nav-item">

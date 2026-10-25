@@ -7,7 +7,6 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
     const verifyAuth = async () => {
       try {
         const { data } = await axios.post(
@@ -15,6 +14,7 @@ export const AuthProvider = ({ children }) => {
           {},
           { withCredentials: true }
         );
+       
         if (data.status) {
           setUser(data.user);
         } else {
@@ -28,8 +28,6 @@ export const AuthProvider = ({ children }) => {
       }
     };
 
-    verifyAuth();
-  }, []);
 
 
   const logout = async () => {
@@ -41,13 +39,14 @@ export const AuthProvider = ({ children }) => {
       );
 
       setUser(null);
+      console.log("user logout")
     } catch (error) {
       console.error("Logout failed", error);
     }
   };
 
   return (
-    <AuthContext.Provider value={{ user, isAuthenticated: !!user, isLoading,logout }}>
+    <AuthContext.Provider value={{ user, isAuthenticated: !!user, isLoading,logout,verifyAuth }}>
       {children}
     </AuthContext.Provider>
   );

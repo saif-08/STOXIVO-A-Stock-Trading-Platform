@@ -1,7 +1,7 @@
 import React from "react";
 
 const Apps = () => {
-  return <h1>Apps</h1>;
+  return <p style={{textAlign:"center",fontWeight:"bold"}}>Comming Soon....work is in progress!!</p>;
 };
 
 export default Apps;

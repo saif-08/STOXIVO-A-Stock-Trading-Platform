@@ -14,6 +14,8 @@ import Navbar from './landing_page/Navbar';
 import Footer from './landing_page/Footer';
 import PageNotFound from './landing_page/PageNotFound';
 import { AuthProvider }from './Context/AuthContext';
+import { ToastContainer, toast } from 'react-toastify';
+
 
 
 
@@ -34,6 +36,12 @@ root.render(
     <Route path="*" element={<PageNotFound />} />
   </Routes>
   <Footer />
+     <ToastContainer
+          position="top-right"
+          autoClose={3000}
+          closeOnClick
+          pauseOnHover
+        />
   </BrowserRouter>
   </ CookiesProvider>
   </ AuthProvider>

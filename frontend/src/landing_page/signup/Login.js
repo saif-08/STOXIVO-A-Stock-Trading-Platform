@@ -1,9 +1,12 @@
+
 import React, { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
+import { useAuth } from "../../Context/AuthContext";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 
 const Login = () => {
+   const { isAuthenticated,user,verifyAuth } = useAuth();
   const navigate = useNavigate();
   const [inputValue, setInputValue] = useState({
     email: "",
@@ -19,34 +22,36 @@ const Login = () => {
   };
   
 
-  const handleError = (err) =>
+  const handleError = (err) =>{
     toast.error(err, {
       position: "bottom-right",
-    });
-  const handleSuccess = (msg) =>
-    toast.success(msg, {
+    })};
+  const handleSuccess = (msg) =>{
+   return toast.success(msg, {
       position: "bottom-right",
-    });
+    })};
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-
-
       //after authcontroller request 
      const { data } = await axios.post(
-`http://localhost:3002/login`,        {
+`${process.env.REACT_APP_BACKEND_URL}/login`,        {
           ...inputValue,
         },
         { withCredentials: true }
       );
-      console.log(data);
       const { success, message } = data;
       if (success) {
+        verifyAuth();
         handleSuccess(message);
+        setTimeout(()=>{
+          toast.dismiss();
+        },1000)
         setTimeout(() => {
            navigate("/products");
-                  }, 1000);
+                  }, 2000);
+                  
       } else {
         handleError(message);
       }
@@ -131,9 +136,9 @@ const Login = () => {
 
 
     </form>
-    <ToastContainer/>
     </div>
   );
 };
+
 
 export default Login;

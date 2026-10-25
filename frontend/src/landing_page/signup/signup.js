@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import { Navigate, useNavigate } from "react-router-dom";
+import { useAuth } from "../../Context/AuthContext";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify"
 
 function Signup() {
+       const { isAuthenticated,user,verifyAuth } = useAuth();
     const navigate = useNavigate();
     const [inputValue, setInputValue] = useState({
         email: "",
@@ -44,10 +46,16 @@ function Signup() {
             );
             const { success, message } = data;
             if (success) {
+                 verifyAuth();
                 handleSuccess(message);
+               
+                 setTimeout(()=>{
+                          toast.dismiss();
+                        },1000)
                 setTimeout(() => {
+                    
                     navigate("/products");
-                }, 1000);
+                }, 2000);
             } else {
                 handleError(message);
             }
@@ -142,7 +150,7 @@ function Signup() {
 
 
             </form>
-            <ToastContainer></ToastContainer>
+          
         </div>
     );
 }

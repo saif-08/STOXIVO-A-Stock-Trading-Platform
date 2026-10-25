@@ -19,7 +19,7 @@ function LeftSection({
           <h1>{productName}</h1>
           <p>{productDesription}</p>
           <div>
-            <a href={tryDemo} style={{textDecoration:"none"}}>Try Demo &nbsp; <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+            <a href="http://localhost:3001/" style={{textDecoration:"none"}}>Try Demo &nbsp; <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
             <a href={learnMore} style={{ marginLeft: "90px",textDecoration:"none" }}>
               Learn More &nbsp; <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
             </a>
