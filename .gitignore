@@ -11,6 +11,15 @@ node_modules/
 # production
 /build
 
+
+# Ignore environment files in all project folders
+**/.env
+**/.env.*
+
+# Allow safe example templates
+!**/.env.example
+
+
 # misc
 .DS_Store
 .env.local
