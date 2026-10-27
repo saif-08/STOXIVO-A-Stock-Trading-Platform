@@ -15,7 +15,7 @@ const authRoute = require("./routes/AuthRoutes");
 
 app.use(cookieParser());
 app.use(cors({
-    origin: ["http://localhost:3000", "http://localhost:3001"],
+    origin: ["http://localhost:3000", "http://localhost:3001","https://stoxivo-frontend.onrender.com","https://stoxivo-dashboard.onrender.com"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   }));
