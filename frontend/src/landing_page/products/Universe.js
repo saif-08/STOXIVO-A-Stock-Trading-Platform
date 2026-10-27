@@ -23,7 +23,7 @@ function Universe() {
           <p className="text-small text-muted">Thematic investment platform</p>
         </div>
         <div className="col-4 p-3 mt-5">
-          <img src="media/images/ZerodhaFundhouse.png" style={{width:"199px",height:"52px"}}/>
+          <img src="media/images/zerodhaFundhouse.png" style={{width:"199px",height:"52px"}}/>
           <p className="text-small text-muted">Thematic investment platform</p>
         </div>
         <div className="col-4 p-3 mt-5">
