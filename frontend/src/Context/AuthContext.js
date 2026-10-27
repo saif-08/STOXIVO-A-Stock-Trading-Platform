@@ -10,7 +10,7 @@ export const AuthProvider = ({ children }) => {
     const verifyAuth = async () => {
       try {
         const { data } = await axios.post(
-          `http://localhost:3002/verify`,
+          `${process.env.REACT_APP_BACKEND_URL}/verify`,
           {},
           { withCredentials: true }
         );
@@ -33,7 +33,7 @@ export const AuthProvider = ({ children }) => {
   const logout = async () => {
     try {
       await axios.post(
-        `http://localhost:3002/logout`,
+        `${process.env.REACT_APP_BACKEND_URL}/logout`,
         {}, 
         {withCredentials:'true'}
       );

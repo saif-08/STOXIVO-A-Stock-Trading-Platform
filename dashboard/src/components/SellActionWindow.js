@@ -16,7 +16,7 @@ const SellActionWindow = ({ uid }) => {
 
   const HandleSellClick = async () => {
 
-    let res = await axios.get(`http://localhost:3002/Order/${uid}`);
+    let res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/Order/${uid}`);
     let availableStock = res.data;
     if (availableStock == "not found") {
       setisStockNotExist(true);
@@ -26,7 +26,7 @@ const SellActionWindow = ({ uid }) => {
       }, 0);
       console.log(totalAvailableQty);
       if(totalAvailableQty>stockQuantity){
-      await axios.post("http://localhost:3002/newOrder", {
+      await axios.post(`${process.env.REACT_APP_BACKEND_URL}/newOrder`, {
         name: uid,
         qty: stockQuantity,
         price: stockPrice,
