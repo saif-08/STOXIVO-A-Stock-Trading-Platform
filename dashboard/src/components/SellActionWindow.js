@@ -21,10 +21,10 @@ const SellActionWindow = ({ uid }) => {
     if (availableStock == "not found") {
       setisStockNotExist(true);
     } else {
-      const totalAvailableQty = availableStock.filter((stock)=>(stock.mode=="Buy")).reduce((sum, stock) => {
+      const totalAvailableQty = availableStock.filter((stock)=>(stock.mode=="BUY")).reduce((sum, stock) => {
         return sum + stock.qty;
       }, 0);
-      console.log(totalAvailableQty);
+     
       if(totalAvailableQty>stockQuantity){
       await axios.post(`${process.env.REACT_APP_BACKEND_URL}/newOrder`, {
         name: uid,
